@@ -1,0 +1,29 @@
+current directory: /home/samiksha/projects/demo/vendor/ruby/2.7.0/gems/puma-3.12.6/ext/puma_http11
+/home/samiksha/.rvm/rubies/ruby-2.7.3/bin/ruby -I /home/samiksha/.rvm/rubies/ruby-2.7.3/lib/ruby/2.7.0 -r ./siteconf20230106-23346-lk8si9.rb extconf.rb
+checking for BIO_read() in -lcrypto... yes
+checking for SSL_CTX_new() in -lssl... yes
+checking for openssl/bio.h... yes
+creating Makefile
+
+current directory: /home/samiksha/projects/demo/vendor/ruby/2.7.0/gems/puma-3.12.6/ext/puma_http11
+make "DESTDIR=" clean
+
+current directory: /home/samiksha/projects/demo/vendor/ruby/2.7.0/gems/puma-3.12.6/ext/puma_http11
+make "DESTDIR="
+compiling http11_parser.c
+compiling io_buffer.c
+compiling mini_ssl.c
+mini_ssl.c: In function ‘raise_error’:
+mini_ssl.c:250:6: warning: function might be candidate for attribute ‘noreturn’ [-Wsuggest-attribute=noreturn]
+  250 | void raise_error(SSL* ssl, int result) {
+      |      ^~~~~~~~~~~
+mini_ssl.c: At top level:
+cc1: note: unrecognized command-line option ‘-Wno-self-assign’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-parentheses-equality’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-constant-logical-operand’ may have been intended to silence earlier diagnostics
+compiling puma_http11.c
+linking shared-object puma/puma_http11.so
+
+current directory: /home/samiksha/projects/demo/vendor/ruby/2.7.0/gems/puma-3.12.6/ext/puma_http11
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 puma_http11.so ./.gem.20230106-23346-1u0bnca/puma

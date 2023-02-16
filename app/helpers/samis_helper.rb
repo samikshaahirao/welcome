@@ -1,0 +1,2 @@
+module SamisHelper
+end

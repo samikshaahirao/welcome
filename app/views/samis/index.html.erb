@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Samis</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th>/home/samiksha</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @samis.each do |sami| %>
+      <tr>
+        <td><%= sami.title %></td>
+        <td><%= sami.body %></td>
+        <td><%= sami./home/samiksha %></td>
+        <td><%= link_to 'Show', sami %></td>
+        <td><%= link_to 'Edit', edit_sami_path(sami) %></td>
+        <td><%= link_to 'Destroy', sami, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sami', new_sami_path %>
