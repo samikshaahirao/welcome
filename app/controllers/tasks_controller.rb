@@ -3,7 +3,7 @@ class TasksController < ApplicationController
   
     # GET /tasks or /tasks.json
     def index
-      @tasks = Task.all
+      @tasks = current_user.tasks
     end
   
     # GET /tasks/1 or /tasks/1.json
@@ -56,16 +56,23 @@ class TasksController < ApplicationController
         format.json { head :no_content }
       end
     end
+
+    def completed 
+      task_id = params[:id]
+      t = Task.find_by_id(task_id)
+      t.update_attribute(:completed, true)
+      flash[:notice] = "Task completed"
+      redirect_to root_path
+    end
   
     private
-      # Use callbacks to share common setup or constraints between actions.
-      def set_task
-        @task = Task.find(params[:id])
-      end
-  
-      # Only allow a list of trusted parameters through.
-      def task_params
-        params.require(:task).permit(:name, :discription, :title, :user_id)
-      end
-  end
-  
+    # Use callbacks to share common setup or constraints between actions.
+    def set_task
+      @task = Task.find(params[:id])
+    end
+
+    # Only allow a list of trusted parameters through.
+    def task_params
+      params.require(:task).permit(:name, :discription, :title, :user_id, :completed )
+    end
+end

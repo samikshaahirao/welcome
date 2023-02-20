@@ -1,0 +1,21 @@
+= form_tag("/tasks/complete", :method => "post") do
+  ul#tasks
+    - @tasks.each do |task|
+      - if task.completed == true
+        li[style="color:grey;"]
+          = check_box_tag "tasks_checkbox[]",task.id 
+          strike
+            = task.name
+          = link_to 'Delete task', task, method: :delete
+          
+      - else
+        li
+          = check_box_tag "tasks_checkbox[]",task.id
+          = task.name
+          = link_to 'Delete task', task, method: :delete  
+
+  = submit_tag("Complete Task", class: "btn btn-large btn-primary")    
+= form_for :task, url: tasks_path do |f|
+  = f.label :name
+  = f.text_field :name
+  = f.submit "Add task", class: "btn btn-large btn-primary"

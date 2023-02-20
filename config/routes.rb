@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :tasks
+  resources :tasks do
+    member do
+      get :completed 
+    end
+  end
   resources :samis
   resources :comments
   resources :posts

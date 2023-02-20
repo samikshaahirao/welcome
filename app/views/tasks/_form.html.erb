@@ -27,10 +27,15 @@
     </div>
   
     <div class="field">
+      <%= f.label :completed %>
+      <%= f.check_box :completed %>
+    </div>
+
+        
+    <div class="field">
     <%= f.label :user_id %>
     <%= f.number_field :user_id %>
     </div>
-
     <div class="actions">
       <%= f.submit %>
     </div>
